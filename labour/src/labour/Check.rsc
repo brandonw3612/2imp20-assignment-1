@@ -19,7 +19,7 @@ import String;
  */
 
 /*
- * We already provided a function called checkBoulderRouteConfiguration(...), which is responsible for calling all 
+ * We already provided a function called checkBoulderRouteConfiguration(...), which is responsible for calling all
  * the required functions that check the program's well-formedness as described in the PDF (Section 2.2.).
  * This function takes as a parameter the program's AST and returns true if the program is well-formed or false otherwise.
  */
@@ -32,11 +32,6 @@ bool checkBoulderRouteConfiguration(BoulderingRoute route){
 }
 
 /*
- * Define a function per each verification defined in the PDF (Section 2.2.)
- * Once again, we already provided two functions as examples.
- */
-
-/* 
  * Check that there is a single list of volumes
  */
 bool checkNumberOfVolumeLists(BoulderingRoute route) {
@@ -60,3 +55,8 @@ bool checkStartingHoldsTotalLimit(BoulderingRoute route) {
   int total = size(starting_labels_items);
   return (total >= 0 && total <= 2);
 }
+
+/*
+ * Define a function per each verification defined in the PDF (Section 2.2.)
+ * Once again, we already provided two functions as examples.
+ */

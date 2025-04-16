@@ -10,7 +10,7 @@ import labour::Syntax;
  * Map lexical nodes to Rascal primitive types (bool, int, str)
  */
 
-// Provides println which can be handy during debugging.
+// This provides println which can be handy during debugging.
 import IO;
 
 // These provide useful functions such as toInt, keep those in mind.
