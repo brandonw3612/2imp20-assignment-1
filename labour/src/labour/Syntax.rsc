@@ -5,10 +5,10 @@ module labour::Syntax
  */
 
 /*
- * Note, the LanguageServer expects the language base to be called BoulderingRoute.
+ * Note, the Server expects the language base to be called BoulderingWall.
  * You are free to change this name, but if you do so, make sure to change everywhere else to make sure the
  * plugin works accordingly.
  */
-start syntax BoulderingRoute
+start syntax BoulderingWall
  = // Add definition
  ;

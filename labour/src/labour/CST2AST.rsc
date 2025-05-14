@@ -1,5 +1,12 @@
 module labour::CST2AST
 
+// This provides println which can be handy during debugging.
+import IO;
+
+// These provide useful functions such as toInt, keep those in mind.
+import Prelude;
+import String;
+
 import labour::AST;
 import labour::Syntax;
 
@@ -9,10 +16,3 @@ import labour::Syntax;
  * Map regular CST arguments (e.g., *, +, ?) to lists
  * Map lexical nodes to Rascal primitive types (bool, int, str)
  */
-
-// This provides println which can be handy during debugging.
-import IO;
-
-// These provide useful functions such as toInt, keep those in mind.
-import Prelude;
-import String;

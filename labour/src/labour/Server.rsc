@@ -1,6 +1,8 @@
 module labour::Server
 
 import IO;
+import Set;
+import List;
 import String;
 import ParseTree;
 
@@ -17,5 +19,5 @@ import labour::Syntax;
  * - https://www.rascal-mpl.org/docs/Packages/RascalLsp/API/demo/lang/pico/LanguageServer/#demo-lang-pico-LanguageServer-picoExecutionService
  */
 set[LanguageService] contributions() = {
-  parsing(parser(#start[BoulderingRoute]), usesSpecialCaseHighlighting = false)
+  parsing(parser(#start[BoulderingWall]), usesSpecialCaseHighlighting = false)
 };
