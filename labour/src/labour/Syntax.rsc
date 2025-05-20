@@ -11,9 +11,9 @@ module labour::Syntax
  */
 
 layout Layout = Whitespace;
-lexical Whitespace = [\t\n\r\ ];
+lexical Whitespace = [\t\n\r\ ]*;
 
-lexical IntLiteral = [0-9]+;
+lexical IntLiteral = [\-]?[0-9]+;
 lexical Id = [A-Za-z0-9_]+;
 lexical StringLiteral = "\"" ![\"]* "\"";
 
@@ -35,11 +35,11 @@ syntax WallContent =
 ;
 
 syntax VolumeList =
-  Volume ("," Volume)*
+  {Volume ","}+
 ;
 
 syntax RouteList =
-  BoulderingRoute ("," BoulderingRoute)*
+  {BoulderingRoute ","}+
 ;
 
 // Volume variants
@@ -62,19 +62,16 @@ syntax PolygonVolume =
 ;
 
 syntax FaceList =
-  Face ("," Face)*
+  {Face ","}+
 ;
 
 syntax Face =
-  "face" "{" "vertices" "[" VertexList "]" HoldSection? "}"
-;
-
-syntax HoldSection =
-  "," "holds" "[" HoldList "]"
+  FaceWithHolds: "face" "{" "vertices" "[" VertexList "]" "," "holds" "[" HoldList "]" "}"
+  | FaceWithoutHolds: "face" "{" "vertices" "[" VertexList "]" "}"
 ;
 
 syntax VertexList =
-  Vertex ("," Vertex)*
+  {Vertex ","}+
 ;
 
 syntax Vertex =
@@ -83,7 +80,7 @@ syntax Vertex =
 
 // Hold list and structure
 syntax HoldList =
-  Hold ("," Hold)*
+  {Hold ","}+
 ;
 
 syntax Hold =
@@ -91,7 +88,7 @@ syntax Hold =
 ;
 
 syntax HoldPropList =
-  HoldProp ("," HoldProp)*
+  {HoldProp ","}+
 ;
 
 syntax HoldProp =
@@ -104,7 +101,7 @@ syntax HoldProp =
 ;
 
 syntax ColourList =
-  Colour ("," Colour)*
+  {Colour ","}+
 ;
 
 syntax Colour =
@@ -126,6 +123,6 @@ syntax RouteContent =
 ;
 
 syntax HoldIdList =
-  StringLiteral ("," StringLiteral)*
+  {StringLiteral ","}+
 ;
 
