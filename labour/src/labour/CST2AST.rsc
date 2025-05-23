@@ -128,11 +128,10 @@ Pos cst2astPos(tree p) = visit(p) {
 BoulderingRoute cst2astRoute(tree r) = visit(r) {
   // bouldering_route "ID" { grade: G , grid_base_point Pos , holds [IDs] }
   case appl(prod("BoulderingRoute", _), [_, StringLiteral(id), _, content, _]):
-    // TODO: Index handling unimplemented
     list[tree] fields = children(content);
-    str grade    = toStr(fields[0][1]);
-    Pos base     = cst2astPos(fields[1][1]);
-    list[str] hs  = [ toStr(lit) | lit <- children(fields[2][2]) ];
+    str grade    = toStr(fields[2]);
+    Pos base     = cst2astPos(fields[5]);
+    list[str] hs  = [ toStr(lit) | lit <- children(fields[9], !isComma(n)) ];
     return bouldering_route(id, grade, base, hs);
 };
 
